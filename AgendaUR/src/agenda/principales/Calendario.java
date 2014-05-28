@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -12,12 +11,14 @@ import java.util.Locale;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 @TargetApi(3)
-public class Calendario extends Activity implements OnClickListener {
+public class Calendario extends ActionBarActivity implements OnClickListener {
 	private static final String tag = "MyCalendarActivity";
 
 	private TextView currentMonth;
@@ -78,6 +79,18 @@ public class Calendario extends Activity implements OnClickListener {
 				R.id.calendar_day_gridcell, month, year);
 		adapter.notifyDataSetChanged();
 		calendarView.setAdapter(adapter);
+	}
+
+	// que simule que se ha presionado el botón back
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			// app icon in action bar clicked; goto parent activity.
+			this.finish();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	/**
@@ -137,9 +150,8 @@ public class Calendario extends Activity implements OnClickListener {
 		private static final int DAY_OFFSET = 1;
 		private final String[] weekdays = new String[] { "Sun", "Mon", "Tue",
 				"Wed", "Thu", "Fri", "Sat" };
-		private final String[] months = { "Enero", "Febrero", "Marzo",
-				"Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
-				"Octubre", "Noviembre", "Diciembre" };
+		private final String[] months = { "1", "2", "3", "4", "5", "6", "7",
+				"8", "9", "10", "11", "12" };
 		private final int[] daysOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30,
 				31, 30, 31 };
 		private int daysInMonth;
@@ -217,7 +229,7 @@ public class Calendario extends Activity implements OnClickListener {
 					+ daysInMonth + " days.");
 
 			GregorianCalendar cal = new GregorianCalendar(yy, currentMonth, 1);
-			
+
 			Log.d(tag, "Gregorian Calendar:= " + cal.getTime().toString());
 
 			if (currentMonth == 11) {
@@ -248,19 +260,16 @@ public class Calendario extends Activity implements OnClickListener {
 						+ prevMonth + " NextMonth: " + nextMonth
 						+ " NextYear: " + nextYear);
 			}
-			int currentWeekDay=0;
-			
-			if(cal.get(Calendar.DAY_OF_WEEK)>2){
-				currentWeekDay = cal.get(Calendar.DAY_OF_WEEK) -2;
-			}
-			else if(cal.get(Calendar.DAY_OF_WEEK)==2){
-				currentWeekDay=0;
-			}
-			else if(cal.get(Calendar.DAY_OF_WEEK)==1){
-				currentWeekDay=6;
+			int currentWeekDay = 0;
+
+			if (cal.get(Calendar.DAY_OF_WEEK) > 2) {
+				currentWeekDay = cal.get(Calendar.DAY_OF_WEEK) - 2;
+			} else if (cal.get(Calendar.DAY_OF_WEEK) == 2) {
+				currentWeekDay = 0;
+			} else if (cal.get(Calendar.DAY_OF_WEEK) == 1) {
+				currentWeekDay = 6;
 			}
 
-			
 			trailingSpaces = currentWeekDay;
 
 			Log.d(tag, "Week Day:" + currentWeekDay + " is "
@@ -387,18 +396,23 @@ public class Calendario extends Activity implements OnClickListener {
 			return row;
 		}
 
-		
 		public void onClick(View view) {
 			String date_month_year = (String) view.getTag();
-			selectedDayMonthYearButton.setText("Selected: " + date_month_year);//Hay que cambiar este
-			Log.e("Selected date", date_month_year);
-			try {
-				Date parsedDate = dateFormatter.parse(date_month_year);
-				Log.d(tag, "Parsed Date: " + parsedDate.toString());
-
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+			System.out.println(date_month_year);
+			Intent i = new Intent(Calendario.this, Eventos.class);
+			Bundle b = new Bundle();
+			b.putString("fecha", date_month_year);
+			i.putExtras(b);
+			startActivity(i);
+			/*
+			 * selectedDayMonthYearButton.setText("Selected: " +
+			 * date_month_year);//Hay que cambiar este Log.e("Selected date",
+			 * date_month_year); try { Date parsedDate =
+			 * dateFormatter.parse(date_month_year); Log.d(tag, "Parsed Date: "
+			 * + parsedDate.toString());
+			 * 
+			 * } catch (ParseException e) { e.printStackTrace(); }
+			 */
 		}
 
 		public int getCurrentDayOfMonth() {
