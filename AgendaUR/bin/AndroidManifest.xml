@@ -7,7 +7,9 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
-
+    
+	<uses-permission android:name="android.permission.INTERNET"/>
+	
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -15,16 +17,43 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
             android:name="agenda.principales.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Eventos"></activity>
-        <activity android:name="Horario"></activity>
-        <activity android:name="Calendario"></activity>
+        <activity
+            android:name="agenda.principales.Eventos"
+            android:label="@string/title_activity_eventos" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="agenda.principales.MainActivity" />
+        </activity>
+        <activity
+            android:name="agenda.principales.Horario"
+            android:label="@string/title_activity_horario" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="agenda.principales.MainActivity" />
+        </activity>
+        <activity
+            android:name="agenda.principales.Calendario"
+            android:label="@string/title_activity_calendario" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="agenda.principales.MainActivity" />
+        </activity>
+        <activity
+            android:name="agenda.principales.CrearEvento"
+            android:label="@string/title_activity_crear_evento" >
+        </activity>
+        <activity
+            android:name="agenda.principales.HorarioWeb"
+            android:label="@string/title_activity_horario_web" >
+        </activity>
     </application>
 
 </manifest>

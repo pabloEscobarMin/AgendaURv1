@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CrearEvento" >
+
+    <EditText
+        android:id="@+id/editTextTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextTitulo"
+        android:layout_below="@+id/editTextTitulo"
+        android:layout_marginTop="20dp"
+        android:text="Fecha:" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="19dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/buttonGuardarEvento"
+        android:text="Título:" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_centerVertical="true"
+        android:text="Hora:" />
+
+    <Button
+        android:id="@+id/buttonCambiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginRight="52dp"
+        android:text="Cambiar" />
+
+    <TextView
+        android:id="@+id/textViewHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonCambiar"
+        android:layout_alignBottom="@+id/buttonCambiar"
+        android:layout_toLeftOf="@+id/buttonGuardarEvento"
+        android:text="00:00" />
+
+    <TextView
+        android:id="@+id/textViewFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="27dp"
+        android:text="01/01/2011" />
+
+    <Button
+        android:id="@+id/buttonCambiarFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewFecha"
+        android:layout_alignBottom="@+id/textViewFecha"
+        android:layout_alignLeft="@+id/buttonCambiar"
+        android:text="Cambiar" />
+
+    <Button
+        android:id="@+id/buttonGuardarEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="Guardar evento" />
+
+    <EditText
+        android:id="@+id/editTextDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonGuardarEvento"
+        android:layout_alignLeft="@+id/textViewHora"
+        android:layout_marginBottom="16dp"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textViewDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextDescripcion"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_marginBottom="14dp"
+        android:text="Descripción:" />
+
+</RelativeLayout>

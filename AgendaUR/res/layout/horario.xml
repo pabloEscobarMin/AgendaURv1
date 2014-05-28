@@ -5,4 +5,53 @@
     android:orientation="vertical" >
     
 
+    <LinearLayout
+            android:id="@+id/ah_linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" 
+            android:layout_margin="10dp"
+            >
+            
+        <TextView
+        android:id="@+id/ah_textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escoge curso" />
+        
+        <Spinner
+        android:id="@+id/ah_spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"/>
+        
+         <TextView
+        android:id="@+id/ah_textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escoge cuatrimestre"
+        android:layout_marginTop="10dp" />
+        
+        <Spinner
+        android:id="@+id/ah_spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/ah_button1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Consultar"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_shape"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        
+    </LinearLayout>
+
+    
+
+    
+
 </LinearLayout>

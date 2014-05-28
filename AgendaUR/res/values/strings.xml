@@ -7,5 +7,11 @@
     <string name="action_search">Buscar</string>
     <string name="drawer_open">Menú Abierto</string>
     <string name="drawer_close">Menú Cerrado</string>
+    <string name="title_activity_crear_evento">CrearEvento</string>
+    <string name="title_activity_calendario">Calendario</string>
+    <string name="title_activity_eventos">Eventos</string>
+    <string name="title_activity_horario">Horario</string>
+    <string name="title_activity_guia_asig">GuiaAsig</string>
+    <string name="title_activity_horario_web">HorarioWeb</string>
 
 </resources>

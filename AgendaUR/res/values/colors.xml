@@ -18,5 +18,8 @@
     <color name="lightgreen">#336666</color>
     <color name="orrange">#e33d1b</color>
     <color name="darkorrange">#cc2303</color>
+    <color name="urcolor">#ab1111</color>
+    <color name="agcolor">#e50206</color>
+    
 
 </resources>
